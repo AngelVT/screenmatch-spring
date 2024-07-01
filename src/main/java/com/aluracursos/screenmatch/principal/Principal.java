@@ -12,7 +12,7 @@ public class Principal {
     private Scanner teclado = new Scanner(System.in);
     private ConsumoAPI consumoApi = new ConsumoAPI();
     private final String URL_BASE = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = System.getenv("OALU_MDB_API_KEY");
+    private final String API_KEY = System.getenv("ALU_OMDB_API_KEY");
     private ConvierteDatos conversor = new ConvierteDatos();
     //private List<DatosSerie> seriesBuscadas = new ArrayList<>();
     private SerieRepository repositorio;
@@ -110,6 +110,7 @@ public class Principal {
                 DatosTemporadas datosTemporada = conversor.obtenerDatos(json, DatosTemporadas.class);
                 temporadas.add(datosTemporada);
             }
+
             temporadas.forEach(System.out::println);
 
             List<Episodio> episodios = temporadas.stream()
